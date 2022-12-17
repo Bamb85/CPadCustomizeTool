@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:text="install new version?" />
+        tools:text="@string/installer_status_title" />
 
     <TextView
         android:id="@+id/installer_progress_text"
