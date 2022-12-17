@@ -8,6 +8,7 @@
     <string name="activity_emergency">緊急モード</string>
     <string name="activity_normal">通常モード</string>
     <string name="activity_app_info">アプリの情報</string>
+    <string name="activity_owner_installer">デバイスオーナーインストーラー</string>
     <string name="activity_app_update">アップデート</string>
     <string name="activity_reboot">再起動</string>
     <string name="activity_uninstall_block">アンインストールブロック設定</string>
@@ -84,7 +85,7 @@
     <string name="pre_app_sum_dcha">DchaServiceによってシステム設定を変更します</string>
     <string name="pre_app_sum_usb">有効にすると、デバイス起動時にUSBデバッグが自動的に無効にされるのを防ぎます</string>
     <string name="pre_app_sum_confirmation_dcha">この機能を使用するには、\"DchaServiceを使用\"を押して内容を確認してください</string>
-    
+
     <!-- デバイスオーナー設定 -->
     <string name="pre_owner_title_uninstall_block">ユーザーアプリのアンインストールを無効</string>
     <string name="pre_owner_title_permission">権限の付与を強制</string>
@@ -183,7 +184,7 @@
     <string name="dialog_question_device_owner">デバイスオーナーを解除しますか？</string>
     <string name="dialog_question_device_admin">デバイス管理者を無効にしますか？\nこの操作を行うとDchaServiceによってアプリがアンインストールされる可能性があります</string>
     <string name="dialog_question_are_you_sure">本当によろしいですか？</string>
-    
+
     <!-- トースト -->
     <string name="toast_common_success">成功しました</string>
     <string name="toast_execution">実行しました</string>
@@ -211,7 +212,7 @@
     <string name="info_github">GitHub</string>
     <string name="info_github_label">このアプリのソースコードを取得できます</string>
     <string name="info_github_button">取得</string>
-    
+
     <!-- レイアウト -->
     <string name="layout_img_content_description">icon</string>
     <string name="layout_update_info">アップデートがあります\nアップデートしますか？\n\n更新情報：\n</string>
@@ -250,4 +251,14 @@
     <string name="installer_status_failure">インストーラ失敗</string>
     <string name="installer_status_no_allocatable_space">ストレージの空き容量が不足している可能性があります\n</string>
     <string name="installer_status_unknown_error">不明なエラーです</string>
+
+    <!--　デバイスオーナーインストーラー　-->
+    <string name="installer_status_parsing">パッケージの解析中です</string>
+    <string name="installer_status_title">%1$s をインストール</string>
+    <string name="installer_status_installing">%1$s をインストールしています…</string>
+    <string name="installer_status_complete">%1$s をインストールしました</string>
+    <string name="installer_install">インストール</string>
+    <string name="installer_cancel">キャンセル</string>
+    <string name="installer_open_app">開く</string>
+    <string name="installer_close">閉じる</string>
 </resources>

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.saradabar.cpadcustomizetool">
 
     <permission-group
-        android:label="@string/app_name"
-        android:name="android.permission-group.KOBOLD" />
+        android:name="android.permission-group.KOBOLD"
+        android:label="@string/app_name" />
 
     <permission
-        android:permissionGroup="android.permission-group.KOBOLD"
         android:name="com.saradabar.cpadcustomizetool.permission.ACCESS_DEVICE_OWNER"
-        android:label="@string/permission_group_label"
         android:description="@string/permission_group_description"
+        android:label="@string/permission_group_label"
+        android:permissionGroup="android.permission-group.KOBOLD"
         android:protectionLevel="dangerous" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -31,125 +30,137 @@
     <uses-permission android:name="com.saradabar.cpadcustomizetool.permission.ACCESS_DEVICE_OWNER" />
 
     <application
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:allowBackup="false">
-
+        android:label="@string/app_name">
         <activity
-            android:name=".view.activity.WelAppActivity"
-            android:theme="@style/WelcomeScreenTheme.Light"/>
+            android:name=".view.activity.DeviceOwnerInstaller"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/activity_owner_installer"
+            android:theme="@style/MainTheme">
 
-        <activity
-            android:clearTaskOnLaunch="true"
-            android:name=".MainActivity"
-            android:label="@string/activity_start_check"
-            android:theme="@style/StartTheme"
-            android:exported="true">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.HOME"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="file" />
+                <data android:mimeType="application/*" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:mimeType="application/*" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.WelAppActivity"
+            android:theme="@style/WelcomeScreenTheme.Light" />
+        <activity
+            android:name=".MainActivity"
+            android:clearTaskOnLaunch="true"
+            android:exported="true"
+            android:label="@string/activity_start_check"
+            android:theme="@style/StartTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
 
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.activity.StartActivity"
             android:label="@string/activity_main_normal_settings"
             android:theme="@style/MainPreferenceTheme" />
-
         <activity
             android:name=".view.activity.UpdateActivity"
             android:label="@string/activity_app_update"
             android:theme="@style/MainTheme"
             tools:ignore="InnerclassSeparator" />
-
         <activity
             android:name=".view.activity.InformationActivity"
             android:label="@string/activity_app_info"
             android:theme="@style/MainTheme"
             tools:ignore="InnerclassSeparator" />
-
         <activity
-            android:clearTaskOnLaunch="true"
-            android:documentLaunchMode="always"
             android:name=".view.activity.EmergencyActivity"
+            android:clearTaskOnLaunch="true"
+            android:documentLaunchMode="always"
+            android:exported="true"
             android:label="@string/activity_emergency"
-            android:theme="@style/ActivityTheme"
-            android:exported="true">
+            android:theme="@style/ActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity
-            android:clearTaskOnLaunch="true"
-            android:documentLaunchMode="always"
             android:name=".view.activity.NormalActivity"
-            android:label="@string/activity_normal"
-            android:theme="@style/ActivityTheme"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:clearTaskOnLaunch="true"
             android:documentLaunchMode="always"
-            android:name=".view.activity.RebootActivity"
-            android:label="@string/activity_reboot"
-            android:icon="@drawable/reboot"
-            android:theme="@style/ActivityTheme"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/activity_normal"
+            android:theme="@style/ActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".view.activity.RebootActivity"
+            android:clearTaskOnLaunch="true"
+            android:documentLaunchMode="always"
+            android:exported="true"
+            android:icon="@drawable/reboot"
+            android:label="@string/activity_reboot"
+            android:theme="@style/ActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.activity.BlockerActivity"
-            android:theme="@style/MainTheme"
-            android:label="@string/activity_uninstall_block" />
-
+            android:label="@string/activity_uninstall_block"
+            android:theme="@style/MainTheme" />
         <activity
             android:name=".view.activity.CrashLogActivity"
-            android:theme="@style/MainTheme"
-            android:label="@string/activity_crash_log" />
+            android:label="@string/activity_crash_log"
+            android:theme="@style/MainTheme" />
 
         <service
             android:name=".data.service.KeepService"
-            android:label="@string/service_keep"
-            android:exported="false">
+            android:exported="false"
+            android:label="@string/service_keep">
             <intent-filter>
-                <action android:name="com.saradabar.cpadcustomizetool.data.service.KeepService"/>
+                <action android:name="com.saradabar.cpadcustomizetool.data.service.KeepService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".data.service.ProtectKeepService"
+            android:exported="false"
             android:label="@string/service_protect_keep"
-            android:process=":protect"
-            android:exported="false">
+            android:process=":protect">
             <intent-filter>
-                <action android:name="com.saradabar.cpadcustomizetool.data.service.ProtectKeepService"/>
+                <action android:name="com.saradabar.cpadcustomizetool.data.service.ProtectKeepService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".data.service.DeviceOwnerService"
+            android:exported="true"
             android:label="@string/app_name"
-            android:permission="com.saradabar.cpadcustomizetool.permission.ACCESS_DEVICE_OWNER"
-            android:exported="true">
+            android:permission="com.saradabar.cpadcustomizetool.permission.ACCESS_DEVICE_OWNER">
             <intent-filter>
-                <action android:name="com.saradabar.cpadcustomizetool.data.service.DeviceOwnerService"/>
+                <action android:name="com.saradabar.cpadcustomizetool.data.service.DeviceOwnerService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".data.service.InstallService"
-            android:label="@string/app_name"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/app_name" />
 
         <receiver
             android:name=".Receiver.PackageAddedReceiver"
@@ -157,29 +168,30 @@
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
                 <action android:name="android.intent.action.ACTION_PACKAGE_REPLACED" />
+
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".Receiver.BootCompletedReceiver"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
-            android:exported="false">
+            android:exported="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".Receiver.AdministratorReceiver"
-            android:permission="android.permission.BIND_DEVICE_ADMIN"
-            android:exported="false">
+            android:exported="false"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data
                 android:name="android.app.device_admin"
                 android:resource="@xml/administrator" />
+
             <intent-filter>
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
     </application>
+
 </manifest>
